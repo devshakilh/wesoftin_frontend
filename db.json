@@ -1,0 +1,18 @@
+{
+  "user": [
+    {
+      "id": "sd",
+      "name": "fds",
+      "password": "12345678",
+      "email": "ahana@gamil.com",
+      "photos": "C:\\fakepath\\sing (1).jpeg"
+    },
+    {
+      "id": "sf",
+      "name": "Shakil",
+      "password": "12345678",
+      "email": "ahana@gamil.com",
+      "photos": "C:\\fakepath\\sing (1).jpeg"
+    }
+  ]
+}
