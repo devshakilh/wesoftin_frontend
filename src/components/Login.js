@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { TEInput, TERipple } from "tw-elements-react";
-import { Link, NavLink, } from 'react-router-dom';
+import { TERipple } from "tw-elements-react";
 
-import { useNavigate } from 'react-router-dom'
+
+import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from '../AuthContext/AuthContext';
 
 
 
 const Login = () => {
-    const [username, usernameupdate] = useState('');
-    const [password, passwordupdate] = useState('');
-
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const { login } = useAuth();
     const usenavigate = useNavigate();
+
+
 
     useEffect(() => {
         sessionStorage.clear();
     }, []);
+
+
+
 
     const ProceedLogin = (e) => {
         e.preventDefault();
@@ -33,7 +39,7 @@ const Login = () => {
                     if (resp.password === password) {
                         toast.success('Success');
                         sessionStorage.setItem('username', username);
-                        sessionStorage.setItem('userrole', resp.role);
+
                         usenavigate('/')
                     } else {
                         toast.error('Please Enter valid credentials');
@@ -44,6 +50,10 @@ const Login = () => {
             });
         }
     }
+
+
+
+
 
     const ProceedLoginusingAPI = (e) => {
         e.preventDefault();
@@ -76,6 +86,11 @@ const Login = () => {
             });
         }
     }
+
+
+
+    // validate username and password
+
     const validate = () => {
         let result = true;
         if (username === '' || username === null) {
@@ -90,17 +105,31 @@ const Login = () => {
     }
 
 
+
+
+
+
+    const handleLogin = () => {
+        // Implement your authentication logic here
+        const userData = { username, password };
+        login(userData);
+    };
+
+
+
+
     const history = useNavigate();
+
+
+
 
 
     return (
         <>
 
-
-
-
             <section className="h-screen">
                 <div className="h-full">
+
                     {/* <!-- Left column container with background--> */}
                     <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                         <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
@@ -114,14 +143,13 @@ const Login = () => {
 
 
 
-
-
                         {/* <!-- Right column container --> */}
                         <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
 
                             {/* <!--Sign in section--> */}
                             <div className="flex flex-row items-center justify-center lg:justify-start">
                                 <p className="mb-0 mr-4 text-lg">Sign in with</p>
+
 
                                 {/* <!-- Facebook button--> */}
                                 <TERipple rippleColor="light">
@@ -141,6 +169,7 @@ const Login = () => {
                                     </button>
                                 </TERipple>
 
+
                                 {/* <!-- Twitter button --> */}
                                 <TERipple rippleColor="light">
                                     <button
@@ -159,6 +188,8 @@ const Login = () => {
                                     </button>
                                 </TERipple>
 
+
+
                                 {/* <!-- Linkedin button --> */}
                                 <TERipple rippleColor="light">
                                     <button
@@ -176,7 +207,10 @@ const Login = () => {
                                         </svg>
                                     </button>
                                 </TERipple>
+
                             </div>
+
+
 
                             {/* <!-- Separator between social media sign in and email/password sign in --> */}
                             <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
@@ -185,31 +219,49 @@ const Login = () => {
                                 </p>
                             </div>
 
+
+                            {/* form  start */}
+
                             <form onSubmit={ProceedLogin}>
 
                                 <div className="mb-3 col-lg-6" controlId="formBasicEmail">
 
                                     <input
-                                        value={username} onChange={e => usernameupdate(e.target.value)}
+                                        value={username} onChange={e => setUsername(e.target.value)}
                                         type="name" name='name'
-                                        //  onChange={getdata}
+
                                         placeholder="Enter your user Name" />
                                 </div>
 
                                 <div className="mb-3 col-lg-6" controlId="formBasicPassword">
 
                                     <input type="password" name='password'
-                                        // onChange={getdata} 
-                                        value={password} onChange={e => passwordupdate(e.target.value)}
+
+                                        value={password} onChange={e => setPassword(e.target.value)}
                                         placeholder="Password" />
                                 </div>
-                                <button variant="primary" className='px-5 py-2 font-bold text-black'
+                                <button variant="primary" onClick={handleLogin} className='px-5 py-2 font-bold text-black'
                                     //  onClick={addData}
                                     style={{ background: "rgb(67, 185, 127)" }} type="submit">
-                                    Submit
+                                    Login
                                 </button>
                             </form>
 
+                            {/* form end */}
+
+
+
+
+
+                            <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
+                                New to register?{" "}
+                                <Link
+                                    to="/register"
+                                    className="text-danger link transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+                                >
+                                    Register
+                                </Link>
+                            </p>
                         </div>
                     </div>
 

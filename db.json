@@ -13,6 +13,13 @@
       "password": "12345678",
       "email": "ahana@gamil.com",
       "photos": "C:\\fakepath\\sing (1).jpeg"
+    },
+    {
+      "id": "shakil",
+      "name": "Md Shakil Hossain",
+      "password": "12345678",
+      "email": "shhana@gamil.com",
+      "photos": "C:\\fakepath\\309587438_484091880400151_4117531893467872525_n.png"
     }
   ]
 }

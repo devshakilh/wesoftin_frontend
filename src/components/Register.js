@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import { TEInput, TERipple } from "tw-elements-react";
 
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
+
+
+
+
 
 const Register = () => {
 
@@ -16,6 +22,8 @@ const Register = () => {
 
 
     const navigate = useNavigate();
+
+
 
     const IsValidate = () => {
         let isproceed = true;
@@ -56,6 +64,8 @@ const Register = () => {
     }
 
 
+
+
     const handlesubmit = (e) => {
         e.preventDefault();
         let regobj = { id, name, password, email, photos };
@@ -85,7 +95,9 @@ const Register = () => {
 
 
             <section className="h-screen">
+
                 <div className="h-full ">
+
                     {/* <!-- Left column container with background--> */}
                     <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                         <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
@@ -96,11 +108,13 @@ const Register = () => {
                             />
                         </div>
 
+
                         {/* <!-- Right column container --> */}
                         <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 shadow-sm px-4 py-4 shadow-white">
 
                             {/* <!--Sign in section--> */}
                             <div className="flex flex-row items-center justify-center lg:justify-start">
+
                                 <p className="mb-0 mr-4 text-lg">Register in with</p>
 
                                 {/* <!-- Facebook button--> */}
@@ -166,6 +180,7 @@ const Register = () => {
                             </div>
 
 
+
                             <form className='' onSubmit={handlesubmit}>
 
 
@@ -176,7 +191,7 @@ const Register = () => {
                                         placeholder="Enter your username"
 
                                         className="mb-6"
-                                        // onChange={getdata}
+
                                         size="lg"
                                     ></TEInput>
 
@@ -189,7 +204,7 @@ const Register = () => {
                                         placeholder="Enter your Name"
                                         name='name'
                                         className="mb-6"
-                                        // onChange={getdata}
+
                                         size="lg"
                                     ></TEInput>
 
@@ -201,7 +216,7 @@ const Register = () => {
                                         placeholder="Enter your Email"
                                         name='email'
                                         className="mb-6"
-                                        // onChange={getdata}
+
                                         size="lg"
                                     ></TEInput>
 
@@ -217,7 +232,7 @@ const Register = () => {
                                         placeholder="Password"
                                         name='password'
                                         className="mb-6"
-                                        // onChange={getdata}
+
                                         size="lg"
                                     ></TEInput>
 
@@ -238,9 +253,11 @@ const Register = () => {
                                 {/* onClick={addData} */}
 
                                 <button className='btn-primary px-4 py-2 rounded-md' style={{ background: "rgb(67, 185, 127)" }} type="submit" >
-                                    Submit
+                                    Register
                                 </button>
                             </form>
+
+
 
                             <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
                                 Already have an account?{" "}
