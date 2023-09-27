@@ -144,7 +144,7 @@ const Login = () => {
 
 
                         {/* <!-- Right column container --> */}
-                        <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+                        <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 shadow-sm px-4 py-4 shadow-white">
 
                             {/* <!--Sign in section--> */}
                             <div className="flex flex-row items-center justify-center lg:justify-start">
@@ -240,7 +240,7 @@ const Login = () => {
                                         value={password} onChange={e => setPassword(e.target.value)}
                                         placeholder="Password" />
                                 </div>
-                                <button variant="primary" onClick={handleLogin} className='px-5 py-2 font-bold text-black'
+                                <button variant="primary" onClick={handleLogin} className='px-4 py-2 font-bold textwhite rounded-md'
                                     //  onClick={addData}
                                     style={{ background: "rgb(67, 185, 127)" }} type="submit">
                                     Login
