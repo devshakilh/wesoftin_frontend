@@ -230,7 +230,7 @@ const Login = () => {
                                         value={username} onChange={e => setUsername(e.target.value)}
                                         type="name" name='name'
 
-                                        placeholder="Enter your user Name" />
+                                        placeholder="userName" />
                                 </div>
 
                                 <div className="mb-3 col-lg-6" controlId="formBasicPassword">

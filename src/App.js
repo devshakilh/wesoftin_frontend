@@ -24,7 +24,7 @@ function App() {
   return (
 
     <>
-      <ToastContainer theme='colored' position='top-center'></ToastContainer>
+
 
       <Header />
 

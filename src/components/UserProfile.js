@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FetchUserList, Removeuser } from "../Redux/Action";
+import { useAuth } from "../AuthContext/AuthContext";
 
 
 
@@ -14,6 +15,9 @@ const UserProfile = (props) => {
         props.loaduser();
     }, [])
 
+
+
+    const { user, } = useAuth();
 
 
     const handledelete = (code) => {
@@ -32,6 +36,15 @@ const UserProfile = (props) => {
             props.user.errmessage ? <div><h2>{props.user.errmessage}</h2></div> :
 
                 <div className="lg:px-16">
+
+                    <div className="text-center py-8 text-2xl">
+                        {user ? (
+                            <div>
+                                <span className="mr-2">Hello, {user.username}!</span>
+
+                            </div>
+                        ) : null}
+                    </div>
 
 
                     <div className="overflow-x-auto">
